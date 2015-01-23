@@ -3,22 +3,24 @@
 	<head>
 		<title>Expenses</title>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  		<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.css">
-  		<style>
+		<link rel="stylesheet" href="libs/angular-material/angular-material.css">
+    <link rel="stylesheet" href="src/docs.css">
+		<style>
       /* add custom styles here */
-  		</style>
-  </script>
-
+		</style>
 	</head>
 	<body ng-app="RestProviderApp">
-		<div class="container" ng-view></div>
-    <script type="text/javascript" src="libs/jquery/dist/jquery.js"></script>
+		<div ng-view layout="column"></div>
     <script type="text/javascript" src="libs/underscore/underscore.js"></script>
+    <script type="text/javascript" src="libs/hammerjs/hammer.js"></script>    
     <script type="text/javascript" src="libs/angularjs/angular.js"></script>
     <script type="text/javascript" src="libs/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="libs/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="libs/angular-messages/angular-messages.js"></script>
-    <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="libs/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="libs/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="libs/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="src/docs.js"></script>
 		<script type="text/javascript" src="src/app.js"></script>
 	</body>
 </html>

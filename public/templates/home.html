@@ -1,1 +1,28 @@
 <h1>JSON Supplier</h1>
+<form novalidate class="simple-form">
+	<div>
+		<input type="radio" name="action_type" ng-model="supplier.action" value="GET"> GET
+		<input type="radio" name="action_type" ng-model="supplier.action" value="POST"> POST
+		<input type="radio" name="action_type" ng-model="supplier.action" value="PUT"> PUT
+		<input type="radio" name="action_type" ng-model="supplier.action" value="DELETE"> DELETE
+	</div>
+	<div>
+		<p>Endpoint</p>
+		<span>https://json-supplier.herokuapp.com/</span><input type="text" ng-model="supplier.url"/>
+	</div>
+	<div>
+		<p>Response Code</p>
+		<input type="number" ng-model="supplier.code"/>
+	</div>	
+	<div>
+		<p>Headers</p>
+		<textarea rows="4" cols="50" ng-model="supplier.headers"></textarea>
+	</div>	
+	<div>
+		<p>JSON Data</p>
+		<textarea rows="4" cols="50" ng-model="supplier.data"></textarea>
+	</div>
+	<div>
+		<input type="submit" ng-click="save(supplier)" value="Save">
+	</div>	
+</form>
