@@ -1,5 +1,5 @@
 <h1>JSON Supplier</h1>
-<form novalidate class="simple-form">
+<form novalidate class="form-horizontal" name="jsonForm">
 	<div>
 		<input type="radio" name="action_type" ng-model="supplier.action" value="GET"> GET
 		<input type="radio" name="action_type" ng-model="supplier.action" value="POST"> POST
@@ -8,19 +8,20 @@
 	</div>
 	<div>
 		<p>Endpoint</p>
-		<span>https://json-supplier.herokuapp.com/</span><input type="text" ng-model="supplier.url"/>
+		<span>https://json-supplier.herokuapp.com/</span>
+		<form-field record="supplier" field="url" datatype="text"></form-field>
 	</div>
 	<div>
 		<p>Response Code</p>
-		<input type="number" ng-model="supplier.code"/>
+		<!-- <form-field record="supplier" field="code" datatype="number"></form-field> -->
 	</div>	
 	<div>
 		<p>Headers</p>
-		<textarea rows="4" cols="50" ng-model="supplier.headers"></textarea>
+		<!-- <form-field record="supplier" field="headers" datatype="textarea"></form-field> -->
 	</div>	
 	<div>
 		<p>JSON Data</p>
-		<textarea rows="4" cols="50" ng-model="supplier.data"></textarea>
+		<!-- <form-field record="supplier" field="data" datatype="textarea"></form-field> -->
 	</div>
 	<div>
 		<input type="submit" ng-click="save(supplier)" value="Save">
