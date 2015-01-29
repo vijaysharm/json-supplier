@@ -101,6 +101,7 @@ function validateJsonData(req, res, next) {
 		req.supplier.headers = JSON.stringify(supplier.headers);
 		req.supplier.action = supplier.action;
 		req.supplier.code = supplier.code;
+		req.supplier.echo = supplier.echo;
 
 		next();
 	}
@@ -138,7 +139,7 @@ app.use(
 }).all('/*', validateEndpoint, loadRepositories, function (req, res) {
 	req.jsonRepository.load(req.json_url, req.method, function (supplier) {
 		var headers = JSON.parse(supplier.headers);
-		var data = JSON.parse(supplier.data);
+		var data = supplier.echo ? req.body : JSON.parse(supplier.data);
 		res.status(supplier.code).set(headers).json(data);
 	}, function (code, error) {
 		res.status(code).json({error: error});

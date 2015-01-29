@@ -15,3 +15,4 @@ Note, if you're mongo server isnt running, be sure to run `mongod` before anythi
 1. Better validation on the backend, especially for URL path and response codes
 2. Improve UI
 3. Limit stored JSON data and headers
+4. Feedback when submitting form from Web

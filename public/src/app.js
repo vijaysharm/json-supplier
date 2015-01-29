@@ -45,9 +45,14 @@ angular.module('RestProviderApp', ['schemaForm'])
 			"key": "headers",
 			"type": "textarea",
 		},
+		"echo",
 		{
-			"key": "data",
-			"type": "textarea",
+			"type": "conditional",
+			"condition": "!supplier.echo",
+			"items": [{
+				"key": "data",
+				"type": "textarea",
+			}]
 		},
 		{
 			"type": "submit",
@@ -79,6 +84,12 @@ angular.module('RestProviderApp', ['schemaForm'])
 					"type": "string",
 					"format": "my-json-format"
 				},
+				"echo": {
+					"title": "Mirror Request Body?",
+					"type": "boolean",
+					"default": false,
+					"description": "Echo the JSON data provided in the body of request"
+				},
 				"data": {
 					"title": "JSON Data",
 					"type": "string",
@@ -91,9 +102,10 @@ angular.module('RestProviderApp', ['schemaForm'])
 		$scope.supplier = {
 			action: 'GET',
 			url: 'your/url/here',
-			data: '{"your_json": "data here"}',
 			code: 200,
-			headers: '{"content-type": "application/json"}'
+			headers: '{"content-type": "application/json"}',			
+			data: '{"your_json": "data here"}',
+			echo: false
 		};
 
 		$scope.onSubmit = function(form) {
