@@ -91,6 +91,10 @@ function validateJsonData(req, res, next) {
 		res.status(400).json({error: 'invalid.json.data'});
 	} else if (!isValidJSON(supplier.headers)) {
 		res.status(400).json({error: 'invalid.headers'});
+	} else if (_.isNaN(supplier.code) || !_.isFinite(supplier.code) || !_.isNumber(supplier.code)) {
+		res.status(400).json({error: 'invalid.response.code'});
+	} else if (_.isEmpty(supplier.url)) {
+		res.status(400).json({error: 'invalid.url'});
 	} else {
 		req.supplier.url = supplier.url;
 		req.supplier.data = JSON.stringify(supplier.data);
@@ -104,8 +108,13 @@ function validateJsonData(req, res, next) {
 
 function validateEndpoint(req, res, next) {
 	console.log("Validating url: " + req.params[0]);
-	req.json_url = req.params[0];
-	next();
+	var json_url = req.params[0];
+	if (_.isEmpty(json_url)) {
+		res.status(400).json({error: 'invalid.url'});
+	} else {
+		req.json_url = json_url;
+		next();
+	}
 }
 
 // ***** ENPOINT **** //
