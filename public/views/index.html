@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Expenses</title>
+		<title>JSON Supplier</title>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+		<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap-theme.css">
 		<style>
       /* add custom styles here */
 		</style>
 	</head>
 	<body ng-app="RestProviderApp">
-		<div ng-view layout="column"></div>
-    <script type="text/javascript" src="libs/underscore/underscore.js"></script>
-    <script type="text/javascript" src="libs/angularjs/angular.js"></script>
-    <script type="text/javascript" src="libs/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="libs/angular-resource/angular-resource.js"></script>
-    <script type="text/javascript" src="libs/angular-messages/angular-messages.js"></script>
+		<div class="container" ng-controller="HomeController">
+			<h1>JSON Supplier</h1>
+			<p>Need JSON data returned to you without setting up a server? You've come to the right place</p>
+			<ol>
+				<li>Choose an HTTP Verb</li>
+				<li>Choose an endpoint URL</li>
+				<li>Choose a reponse code</li>
+				<li>Add optional headers</li>
+				<li>Add optional JSON data to be returned</li>
+				<li>Save!</li>
+			</ol>
+			<p>Easy Peazy!</p>
+		    <form name="jsonForm" 
+		     sf-schema="schema" 
+		       sf-form="form" 
+		      sf-model="supplier"
+		     ng-submit="onSubmit(jsonForm)">
+		     </form>
+		</div>
+		<script type="text/javascript" src="libs/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" src="libs/tv4/tv4.js"></script>
+		<script type="text/javascript" src="libs/angular/angular.js"></script>
+		<script type="text/javascript" src="libs/angular-sanitize/angular-sanitize.js"></script>
+		<script type="text/javascript" src="libs/objectpath/lib/ObjectPath.js"></script>
+		<script type="text/javascript" src="libs/angular-schema-form/dist/schema-form.js"></script>
+		<script type="text/javascript" src="libs/angular-schema-form/dist/bootstrap-decorator.js"></script>		
 		<script type="text/javascript" src="src/app.js"></script>
 	</body>
 </html>
